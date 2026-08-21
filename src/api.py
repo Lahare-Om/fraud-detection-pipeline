@@ -35,7 +35,7 @@ def health():
 def predict(txn: Transaction):
     start = time.time()
 
-    data = txn.dict()
+    data = txn.model_dump()
     amount_scaled = scaler.transform([[data.pop("Amount")]])[0][0]
     time_scaled = scaler.transform([[data.pop("Time")]])[0][0]
 
