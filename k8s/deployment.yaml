@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: fraud-api
-          image: fraud-detection-api:v1
+          image: omlahare/fraud-detection-api:3cb1290e528890231eef142819a4efb70379a37c
           imagePullPolicy: Never
           ports:
             - containerPort: 8000
