@@ -1,25 +1,23 @@
 import pandas as pd
-import numpy as np
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (
-    classification_report, roc_auc_score, average_precision_score, precision_recall_curve, confusion_matrix
+    classification_report, roc_auc_score, average_precision_score, confusion_matrix
 )
 from imblearn.over_sampling import SMOTE
 
 df = pd.read_csv('data/creditcard.csv')
 
 scaler = StandardScaler()
-df['Amount_scaled'] =  scaler.fit_transform(df[['Amount']])
+df['Amount_scaled'] = scaler.fit_transform(df[['Amount']])
 df['Time_scaled'] = scaler.fit_transform(df[['Time']])
-df = df.drop(['Amount','Time'], axis = 1)
+df = df.drop(['Amount', 'Time'], axis=1)
 
 X = df.drop('Class', axis=1)
 y = df['Class']
-
 
 
 X_train, X_test, y_train, y_test = train_test_split(

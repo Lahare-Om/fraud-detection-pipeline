@@ -5,7 +5,7 @@ import seaborn as sns
 df = pd.read_csv('data/creditcard.csv')
 
 print(df.shape)
-print (df['Class'].value_counts())
+print(df['Class'].value_counts())
 print(df.isnull().sum().sum())
 
 
